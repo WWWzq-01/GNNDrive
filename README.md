@@ -42,7 +42,7 @@ Follow the instructions below to install the requirements and run an example usi
             --name GNN-16g --memory 16G --memory-swap 32G \
             -v /path-to-file:/working_dir/ GNN:gpu bash
         ```
-    
+        > Note: `path-to-file` should be replaced to your GNNDrive path
         > Note: `--memory` limits the maximum amount of memory the container can use.
         >
         > Please refer the following link for more details.
@@ -56,6 +56,8 @@ Follow the instructions below to install the requirements and run an example usi
         wget https://github.com/axboe/liburing/archive/refs/tags/liburing-2.1.zip
         unzip liburing-2.1.zip
 
+        mv liburing-liburing-2.1 liburing-2.1
+    
         # install
         cd liburing-2.1
         ./configure --cc=gcc --cxx=g++;
