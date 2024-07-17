@@ -1,4 +1,4 @@
-FROM nvidia/cuda:11.6.0-cudnn8-devel-ubuntu20.04
+FROM nvidia/cuda:11.6.1-cudnn8-devel-ubuntu20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -19,6 +19,9 @@ RUN python3 -m pip install torch==1.12.0+cu116 -f https://download.pytorch.org/w
 
 # install PyG
 RUN pip3 install pyg_lib torch_scatter torch_sparse torch_cluster torch_spline_conv torch_geometric -f https://data.pyg.org/whl/torch-1.12.0+cu116.html
+
+# install ogb
+RUN pip3 install ogb
 
 RUN mkdir /working_dir
 WORKDIR /working_dir
