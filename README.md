@@ -17,10 +17,10 @@ Follow the instructions below to install the requirements and run an example usi
     1. Build docker images
         ```shell
         cd docker
-        docker build -t GNN:gpu .
+        docker build -t gnn:gpu .
         ```
 
-    2. Install nvidia-container-runtime for docker
+    2. Install nvidia-container-runtime for docker or use `sudo bash install_nvidia.sh`
         ```shell
         curl -s -L https://nvidia.github.io/nvidia-container-runtime/gpgkey | \
         sudo apt-key add -
@@ -40,9 +40,12 @@ Follow the instructions below to install the requirements and run an example usi
         ```shell
         docker run --gpus all -it --ipc=host \
             --name GNN-16g --memory 16G --memory-swap 32G \
-            -v /path-to-file:/working_dir/ GNN:gpu bash
+            -v /path-to-file:/working_dir/ \
+            -v /path-to-dataset:/working_dir/data/dataset/ \
+            gnn:gpu bash
         ```
         > Note: `path-to-file` should be replaced to your GNNDrive path
+        > Note: `path-to-dataset` should be replaced to your dataset path
         > Note: `--memory` limits the maximum amount of memory the container can use.
         >
         > Please refer the following link for more details.
@@ -128,4 +131,4 @@ Lei Jia (jialei2022@shanghaitech.edu.cn)
 
 ## Acknowledgements
 
-We thank authors of [Ginex](https://dl.acm.org/doi/10.14778/3551793.3551819) for providing the source code of Ginex and PyG+. Our implementation uses some funtions  of [Ginex](https://github.com/SNU-ARC/Ginex.git).
+We thank authors of [Ginex](https://dl.acm.org/doi/10.14778/3551793.3551819) for providing the source code of Ginex and PyG+. Our implementation uses some funtcions  of [Ginex](https://github.com/SNU-ARC/Ginex.git).
